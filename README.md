@@ -42,9 +42,6 @@ Choisissez **au moins un** backend de génération :
 - **Local** (aucune donnée ne sort) : installez Ollama et récupérez un modèle —
   `ollama pull llama3.2:1b`.
 
-> L'OCR (MinerU) est local et ne demande aucune clé. Le fichier `.env` est ignoré
-> par git : n'y committez jamais de clé.
-
 ---
 
 ## Prise en main
@@ -92,7 +89,7 @@ citation `[source N]` cliquable.
 </p>
 
 Les sources sont listées sous la réponse, du plus au moins pertinent, avec le
-document, la section clinique et le texte exact — pour tout vérifier.
+document, la section clinique et le texte exact.
 
 <p align="center">
   <img src="images/sources.png" alt="Sources traçables" width="820">
@@ -108,7 +105,7 @@ python -m llm "Quel est le motif d'hospitalisation ?"   # RAG complet
 
 ---
 
-## Sous le capot
+## Aspect technique
 
 Le pipeline enchaîne cinq étapes, toutes locales sauf la génération cloud
 optionnelle :
@@ -139,8 +136,4 @@ choisir Ollama rend le pipeline **intégralement on-premise**.
   quitte la machine.
 - **Génération commutable** : le mode cloud (Anthropic) est le seul maillon
   externe, acceptable en démo car le corpus est fictif. Le mode local (Ollama)
-  le supprime → pipeline entièrement on-premise.
-
-**Données de démo** : lettres de sortie **synthétiques** (fictives) — aucun
-patient réel. Le pipeline vise des comptes-rendus anonymisés de type MIMIC-IV.
-Les répertoires `data/` sont ignorés par git ; aucun compte-rendu n'est versionné.
+  le supprime. 
