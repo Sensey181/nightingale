@@ -1,0 +1,51 @@
+# ============================================================================
+# ClinicalRAG — dépendances
+# ----------------------------------------------------------------------------
+# Cible : machine sans GPU. L'OCR (MinerU, backend `pipeline`), les embeddings
+# et le reranker tournent en local sur CPU. Seule la génération (LLM) est
+# déchargée vers l'API Anthropic pour la démo.
+# ============================================================================
+
+# --- Configuration & utilitaires ---
+python-dotenv>=1.0.1          # chargement de .env (ANTHROPIC_API_KEY)
+pydantic>=2.7.0               # schémas de données typés (chunks, documents, résultats)
+pydantic-settings>=2.3.0      # configuration centralisée via variables d'environnement
+tqdm>=4.66.0                  # barres de progression (ingestion / indexing)
+
+# --- Ingestion / OCR ---
+mineru[core]>=2.0.0           # OCR/extraction en local (backend `pipeline`, CPU)
+# NB : `mineru[core]` tire torch et les modèles d'extraction. Sur machine sans
+#      GPU, le backend `pipeline` (config par défaut) suffit et tourne en CPU.
+#      Le premier appel télécharge les modèles (mise en cache locale ensuite).
+
+# --- Chunking / parsing ---
+markdown-it-py>=3.0.0         # parsing du Markdown structuré renvoyé par MinerU
+
+# --- Embeddings (local, CPU) ---
+sentence-transformers>=3.0.0  # chargement de multilingual-e5-small
+torch>=2.2.0                  # backend CPU pour sentence-transformers / reranker
+# NB : installez la variante CPU de torch sur machine sans GPU :
+#      pip install torch --index-url https://download.pytorch.org/whl/cpu
+
+# --- Vector store ---
+chromadb>=0.5.0               # base vectorielle locale, persistée sur disque
+
+# --- Recherche hybride ---
+rank-bm25>=0.2.2              # BM25 (lexical) pour la fusion RRF
+
+# --- Reranking (local, CPU) ---
+# Le reranker ms-marco-MiniLM-L6-v2 est un CrossEncoder chargé via
+# sentence-transformers (déjà listé ci-dessus).
+
+# --- Génération (LLM) ---
+anthropic>=0.40.0             # SDK officiel Anthropic (claude-sonnet-4-6, démo)
+ollama>=0.3.0                 # client LLM local (full on-premise, conformité HDS)
+
+# --- Évaluation ---
+numpy>=1.26.0                 # calcul des métriques (MRR, NDCG)
+
+# --- Interface démo ---
+streamlit>=1.36.0            # interface web de démonstration
+
+# --- Tests ---
+pytest>=8.2.0

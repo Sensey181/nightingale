@@ -1,0 +1,50 @@
+[
+  {
+    "question": "Describe the chest pain reported on admission.",
+    "relevant_ids": ["discharge_001::0000", "discharge_001::0001"]
+  },
+  {
+    "question": "What was the troponin level?",
+    "relevant_ids": ["discharge_001::0004"]
+  },
+  {
+    "question": "What is the final cardiac diagnosis?",
+    "relevant_ids": ["discharge_001::0006"]
+  },
+  {
+    "question": "Which medications were prescribed at discharge for the cardiac patient?",
+    "relevant_ids": ["discharge_001::0005"]
+  },
+  {
+    "question": "What were the blood pressure and heart rate on physical examination?",
+    "relevant_ids": ["discharge_001::0003"]
+  },
+  {
+    "question": "List the patient's past medical history.",
+    "relevant_ids": ["discharge_001::0002"]
+  },
+  {
+    "question": "Which antibiotic was given for the pneumonia?",
+    "relevant_ids": ["discharge_002::0005"]
+  },
+  {
+    "question": "What did the chest imaging show for the respiratory patient?",
+    "relevant_ids": ["discharge_002::0003", "discharge_002::0004"]
+  },
+  {
+    "question": "What was the oxygen saturation on room air?",
+    "relevant_ids": ["discharge_002::0002"]
+  },
+  {
+    "question": "What is the discharge diagnosis for the respiratory patient?",
+    "relevant_ids": ["discharge_002::0006"]
+  },
+  {
+    "question": "What was the chief complaint of the pneumonia patient on admission?",
+    "relevant_ids": ["discharge_002::0000"]
+  },
+  {
+    "question": "What were the white blood cell count and CRP value?",
+    "relevant_ids": ["discharge_002::0003"]
+  }
+]

@@ -1,0 +1,32 @@
+# --- Secrets ---
+.env
+
+# --- Données (ne jamais committer de CR clinique, même anonymisé) ---
+data/raw/*
+data/processed/*
+data/chroma/*
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+!data/chroma/.gitkeep
+
+# --- Modèles téléchargés / caches HuggingFace ---
+.cache/
+*.bin
+*.safetensors
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.venv/
+venv/
+env/
+
+# --- OS / IDE ---
+.DS_Store
+.idea/
+.vscode/
+
+# --- Claude Code (réglages locaux machine) ---
+.claude/
