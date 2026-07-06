@@ -131,10 +131,6 @@ La génération est découplée derrière une interface `LLMClient` : `llm/facto
 instancie le bon backend selon le provider choisi. Le retrieval étant déjà local,
 choisir Ollama rend le pipeline **intégralement on-premise**.
 
-Qualité du retrieval sur le jeu de démo (12 questions annotées, 2 lettres de
-sortie) : **MRR ≈ 0.73**, **nDCG@5 ≈ 0.78** (`python -m evaluation
-data/eval/questions.json --k 5 --id-field chunk`).
-
 ---
 
 ## Confidentialité (HDS)
