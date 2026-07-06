@@ -162,8 +162,6 @@ ollama pull llama3.2:1b        # modèle léger CPU (défaut) ; un modèle plus 
 python scripts/migrate_to_local.py   # rapport : Ollama joignable ? modèle prêt ?
 ```
 
-> ⚠️ Le fichier `.env` est ignoré par git. Ne committez jamais de clé API.
-
 ---
 
 ## Utilisation

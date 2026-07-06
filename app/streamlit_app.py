@@ -148,7 +148,7 @@ def _provider_selector(settings) -> str:
     provider = _LLM_MODES.get(chosen or default, "anthropic")
     model = settings.ollama_model if provider == "ollama" else settings.llm_model
     note = (
-        "génération 100 % locale, aucune donnée ne sort de la machine"
+        "génération en local."
         if provider == "ollama"
         else "génération via l'API Anthropic (démo)"
     )
@@ -522,7 +522,7 @@ def main() -> None:
     )
     st.title("Nightingale", anchor=False)
     st.caption(
-        "RAG local sur comptes-rendus cliniques — retrieval 100 % local"
+        "RAG local sur comptes-rendus cliniques"
     )
 
     # Retour visuel des actions ayant déclenché un rerun (recharger/réinitialiser).
