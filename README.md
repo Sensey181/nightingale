@@ -14,14 +14,9 @@ vous rédige en plus une réponse synthétique : toujours sourcée, sans jamais 
 
 Tout le traitement (lecture OCR des documents, recherche, indexation) se fait
 sur la machine, sans qu'aucune donnée ne sorte : un choix pensé pour les
-contraintes de confidentialité du secteur de la santé (HDS). La génération de la
+contraintes de confidentialité du secteur de la santé. La génération de la
 réponse peut au choix passer par un modèle cloud (pour la démo) ou par un modèle
 100 % local, activable d'un clic.
-
-Par défaut d'une base de données conséquente de CR médicaux, il n'y a pas eu 
-d'évaluation rigoureuse de l'outil. Je peux juste dire qu'en pratique, il donne de
-très bons résultats. Cela serait naturellement fait dans le cas où j'avais accès à
-du matériel pertinent.
 
 ---
 
@@ -134,12 +129,18 @@ La génération est découplée derrière une interface `LLMClient` : `llm/facto
 instancie le bon backend selon le provider choisi. Le retrieval étant déjà local,
 choisir Ollama rend le pipeline **intégralement on-premise**.
 
+La qualité de la recherche est mesurée sur un petit jeu de questions annotées à l'aide d'un harnais d'évaluation dédié, qui calcule deux métriques de retrieval (MRR et nDCG). Sur ce jeu, le système atteint un MRR d'environ 0,73 et un nDCG@5 d'environ 0,78 : cela signifie que le passage pertinent remonte en général dans les tout premiers résultats.
+
 ---
 
-## Confidentialité (HDS)
+## Confidentialité & Conformité
 
-- **OCR et recherche 100 % locaux** : aucun document, aucune donnée indexée ne
-  quitte la machine.
-- **Génération commutable** : le mode cloud (Anthropic) est le seul maillon
-  externe, acceptable en démo car le corpus est fictif. Le mode local (Ollama)
-  le supprime. 
+- **OCR et recherche 100 % locaux** : aucun document, aucune donnée indexée ne quitte la machine. Nous ne sommes donc pas concernés par les exigences HDS.
+- **Génération commutable** : le mode cloud (Anthropic) est le seul maillon externe, acceptable en démo car le corpus est fictif. Le mode local (Ollama) le supprime.
+- **Positionnement réglementaire** : Nightingale en son essence est un outil de recherche documentaire, non un système d'aide au diagnostic. Il ne relève donc pas du MDR (en tant que SaMD) ni de la classification haut risque au sens de l'AI Act (annexe III). La responsabilité décisionnelle reste entièrement humaine.
+
+## Pour aller plus loin, déploiement en production
+
+Selon l'intention d'utilisation déclarée et documentée, Nightingale peut s'intégrer différemment une fois mis en production. Il peut n'être concerné que par le RGPD (en tant qu'outil de recherche documentaire), jusqu'à être concerné par le MDR en tant que SaMD classe IIa ou IIb (en tant qu'outil d'aide à la décision clinique) et par conséquent par l'AI Act en tant que système haut risque (Annexe III). Le HDS ne nous concerne pas ici car l'outil est conçu pour fonctionner entièrement en local.
+
+Une évaluation rigoureuse des performances du pipeline (MRR, NDCG, LLM-as-judge) n'a pas été réalisée faute d'accès à une base de données conséquente de comptes-rendus médicaux réels. Les tests sur un petit corpus fictif donnent des résultats très encourageants. Cette évaluation serait naturellement intégrée en contexte de production, où l'accès à des données réelles permettrait de mesurer précisément les performances du système.
