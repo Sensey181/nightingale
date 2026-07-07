@@ -22,7 +22,7 @@ réponse peut au choix passer par un modèle cloud (pour la démo) ou par un mod
 
 ## Installation
 
-Prérequis : Python 3.12, et — pour le mode 100 % local — [Ollama](https://ollama.com).
+Prérequis : Python 3.12, et pour le mode local : [Ollama](https://ollama.com).
 
 ```bash
 # 1. Environnement virtuel
@@ -62,7 +62,7 @@ local) et l'indexation se font automatiquement.
   <img src="images/ajout-document.png" alt="Ajout d'un document" width="820">
 </p>
 
-Vos documents indexés — et le nombre de passages (chunks) — sont visibles dans
+Vos documents indexés et le nombre de passages (chunks) sont visibles dans
 l'onglet **Corpus**, où vous pouvez aussi les étiqueter ou les supprimer.
 
 <p align="center">
