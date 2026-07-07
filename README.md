@@ -8,8 +8,9 @@
 cliniques, qui tourne entièrement en local.
 
 Vous déposez des lettres de sortie ou des CR médicaux (PDF, images), vous posez
-une question en langage naturel, et l'outil retrouve les passages pertinents
-puis rédige une réponse synthétique : toujours sourcée, sans jamais inventer.
+une question en langage naturel, et l'outil retrouve les passages pertinents dans
+votre corpus documentaire sans que vous ayez à fouiller dans votre machine. Elle
+vous rédige en plus une réponse synthétique : toujours sourcée, sans jamais inventer.
 
 Tout le traitement (lecture OCR des documents, recherche, indexation) se fait
 sur la machine, sans qu'aucune donnée ne sorte : un choix pensé pour les
