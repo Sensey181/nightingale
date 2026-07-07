@@ -36,7 +36,7 @@ pip install -r requirements.txt
 cp .env.example .env
 ```
 
-Choisissez **au moins un** backend de génération :
+Choisissez un backend de génération :
 
 - **Cloud** (meilleure qualité, pour la démo) : renseignez `ANTHROPIC_API_KEY`
   dans `.env`.
