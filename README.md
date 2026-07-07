@@ -18,6 +18,11 @@ contraintes de confidentialité du secteur de la santé (HDS). La génération d
 réponse peut au choix passer par un modèle cloud (pour la démo) ou par un modèle
 100 % local, activable d'un clic.
 
+Par défaut d'une base de données conséquente de CR médicaux, il n'y as pas eu 
+d'évaluation rigoureuse de l'outil. Je peux juste dire qu'en pratique, il donne de
+très bons résultats. Cela serait naturellement fait dans le cas où j'avais accès à
+du matériel pertinent.
+
 ---
 
 ## Installation
